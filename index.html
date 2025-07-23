@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ioana & Erin 💕</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      color: #2c2c2c;
+      text-align: center;
+      padding: 40px 20px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #fff;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px #d95f86;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      color: #fffdfd;
+    }
+
+    .timer {
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 15px 25px;
+      border-radius: 15px;
+      display: inline-block;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      margin-bottom: 40px;
+    }
+
+    /* Music player styles */
+    .music-player {
+      margin: 0 auto 50px auto;
+      background: rgba(255, 255, 255, 0.3);
+      max-width: 350px;
+      padding: 20px 30px;
+      border-radius: 25px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+      color: #fff;
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.5rem;
+      user-select: none;
+    }
+
+    .music-player p {
+      margin-bottom: 15px;
+      font-weight: 600;
+      color: #fff0f5;
+      text-shadow: 1px 1px 3px #b7527e;
+    }
+
+    .music-player audio {
+      width: 100%;
+      border-radius: 15px;
+      outline: none;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+      filter: drop-shadow(0 0 2px #d95f86);
+      cursor: pointer;
+    }
+
+    .section {
+      margin: 50px 0;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    .section h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .section p {
+      font-size: 1.1rem;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    footer {
+      margin-top: 60px;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    /* Secret message button */
+    #loveBtn {
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      border-radius: 25px;
+      border: none;
+      background: #d95f86;
+      color: white;
+      cursor: pointer;
+      margin: 40px auto 20px auto;
+      display: block;
+      box-shadow: 0 0 15px rgba(217,95,134,0.6);
+      transition: background-color 0.3s ease;
+    }
+
+    #loveBtn:hover {
+      background: #b7527e;
+    }
+
+    #secretMsg {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.6rem;
+      color: #fff;
+      margin-top: 20px;
+      user-select: none;
+      min-height: 60px;
+    }
+
+    /* Photo gallery styles */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 15px;
+      max-width: 800px;
+      margin: 40px auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      object-fit: cover;
+      height: 150px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    /* Quote button */
+    #quoteBtn {
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      border-radius: 25px;
+      border: none;
+      background: #d95f86;
+      color: white;
+      cursor: pointer;
+      margin: 40px auto 20px auto;
+      display: block;
+      box-shadow: 0 0 15px rgba(217,95,134,0.6);
+      transition: background-color 0.3s ease;
+    }
+
+    #quoteBtn:hover {
+      background: #b7527e;
+    }
+
+    #quoteText {
+      margin-top: 20px;
+      font-style: italic;
+      color: #fff;
+      min-height: 60px;
+      user-select: none;
+    }
+
+    /* Music toggle button */
+    #musicToggle {
+      margin: 20px auto 50px auto;
+      display: block;
+      padding: 10px 25px;
+      border-radius: 25px;
+      background: #d95f86;
+      color: white;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(217,95,134,0.6);
+      transition: background-color 0.3s ease;
+      font-size: 1.1rem;
+      user-select: none;
+    }
+
+    #musicToggle:hover {
+      background: #b7527e;
+    }
+
+    /* Animated heart cursor */
+    .heart-cursor {
+      position: fixed;
+      pointer-events: none;
+      font-size: 20px;
+      user-select: none;
+      animation: floatUp 1.5s forwards;
+      color: #d63384;
+      z-index: 9999;
+    }
+
+    @keyframes floatUp {
+      to {
+        opacity: 0;
+        transform: translateY(-50px) scale(1.5);
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      .timer {
+        font-size: 1.4rem;
+      }
+      .music-player {
+        max-width: 90%;
+        font-size: 1.3rem;
+        padding: 15px 20px;
+      }
+      .gallery img {
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>For Ioana, My One & Only 💖</h1>
+  <p class="subtitle">Every second with you is precious...</p>
+
+  <div class="timer" id="countup">
+    Loading time...
+  </div>
+
+  <div class="music-player">
+    <p>Our Song</p>
+    <audio id="backgroundMusic" controls autoplay loop>
+      <!-- Replace with your own song or URL -->
+      <source src="images/Mac DeMarco  My Kind Of Woman.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+
+  <!-- Secret love message -->
+  <button id="loveBtn">Reveal a Secret Message</button>
+  <p id="secretMsg"></p>
+
+  <section id="reasons" style="text-align: center; margin-top: 40px;">
+  <h2 style="font-family: 'Cursive', sans-serif; font-size: 28px;">💖 Reasons Why I Love You 💖</h2>
+  <ul style="max-height: 200px; overflow-y: auto; list-style: none; padding: 0; margin: 20px auto; width: 90%; max-width: 400px; text-align: left; background: rgba(255, 255, 255, 0.2); border-radius: 10px; padding: 20px; backdrop-filter: blur(10px); color: white;">
+    <li>You're always there for me.</li>
+    <li>You make me smile every single day.</li>
+    <li>You understand me better than anyone.</li>
+    <li>I love your beautiful heart.</li>
+    <li>I love the way you sing.</li>
+    <li>You make my world brighter.</li>
+    <li>You support me no matter what.</li>
+    <li>Every moment with you feels like a movie.</li>
+    <li>I get lost in your eyes.</li>
+    <li>Your hugs and kisses are magical.</li>
+    <li>You're my whole world.</li>
+  </ul>
+</section>
+
+
+  <!-- Photo gallery -->
+  <div class="section">
+    <h2>Memories Together</h2>
+    <div class="gallery">
+      <img src="images/IMG_4721.png" alt="Us 1" />
+      <img src="images/IMG_4932.png" alt="Us 2" />
+      <img src="images/IMG_6178.png" alt="Us 3" />
+      <img src="images/IMG_6182.png" alt="Us 4" />
+    </div>
+  </div>
+
+  <!-- Romantic quotes -->
+  <button id="quoteBtn">Show me a Romantic Quote 💕</button>
+  <p id="quoteText"></p>
+
+  <div class="section">
+    <h2>Our Journey</h2>
+    <p>
+      From the very first moment I saw you, my world changed forever. Every smile, every laugh, every hug — they're all etched into my heart. I'm so grateful to walk through life with you by my side.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Love Letter</h2>
+    <p>
+      My love, thank you for being the light in my life. I fall more in love with you every single day. This site is just a small piece of my heart — there’s so much more to come. I love you forever and always. ❤️
+    </p>
+  </div>
+
+  <footer>
+    Made with all my heart by someone who loves you deeply.
+  </footer>
+
+  <script>
+    // Countup timer
+    const startDate = new Date("2025-06-01T00:25:00");
+    const countup = document.getElementById("countup");
+
+    function updateTimer() {
+      const now = new Date();
+      const diff = now - startDate;
+
+      if (diff < 0) {
+        countup.innerHTML = "We'll start counting soon 💞";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countup.innerHTML = `
+        We've been together for:<br>
+        <strong>${days}</strong> days,
+        <strong>${hours}</strong> hours,
+        <strong>${minutes}</strong> minutes,
+        <strong>${seconds}</strong> seconds 💞
+      `;
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    // Secret love message
+    const loveBtn = document.getElementById('loveBtn');
+    const secretMsg = document.getElementById('secretMsg');
+
+    loveBtn.addEventListener('click', () => {
+      if (secretMsg.style.display === 'block') {
+        secretMsg.style.display = 'none';
+      } else {
+        secretMsg.textContent = "You light up my world in ways I never thought possible. I love you endlessly. ❤️";
+        secretMsg.style.display = 'block';
+      }
+    });
+
+    // Romantic quotes
+    const quotes = [
+      "Love is composed of a single soul inhabiting two bodies. — Aristotle",
+      "You are my heart, my life, my one and only thought. — Arthur Conan Doyle",
+      "In all the world, there is no heart for me like yours. — Maya Angelou",
+      "Whatever our souls are made of, his and mine are the same. — Emily Brontë",
+      "I wish I could turn back the clock. I’d find you sooner and love you longer."
+    ];
+
+    const quoteBtn = document.getElementById('quoteBtn');
+    const quoteText = document.getElementById('quoteText');
+
+    quoteBtn.addEventListener('click', () => {
+      const random = quotes[Math.floor(Math.random() * quotes.length)];
+      quoteText.textContent = random;
+    });
+
+
+    // Animated heart cursor
+    document.addEventListener('mousemove', e => {
+      const heart = document.createElement('div');
+      heart.className = 'heart-cursor';
+      heart.style.left = e.pageX + 'px';
+      heart.style.top = e.pageY + 'px';
+      heart.textContent = '💖';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 1500);
+    });
+  </script>
+
+  <!-- Falling Petals Animation -->
+<canvas id="petals-canvas"></canvas>
+<script>
+const canvas = document.getElementById("petals-canvas");
+const ctx = canvas.getContext("2d");
+
+canvas.style.position = "fixed";
+canvas.style.top = 0;
+canvas.style.left = 0;
+canvas.style.width = "100%";
+canvas.style.height = "100%";
+canvas.style.zIndex = "-1";
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let petals = [];
+
+function createPetal() {
+  const x = Math.random() * canvas.width;
+  const y = -10;
+  const size = Math.random() * 6 + 4;
+  const speed = Math.random() * 1 + 0.5;
+  const drift = Math.random() * 1 - 0.5;
+  petals.push({ x, y, size, speed, drift });
+}
+
+function drawPetals() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (let i = 0; i < petals.length; i++) {
+    const p = petals[i];
+    ctx.beginPath();
+    ctx.fillStyle = "#FFC0CB"; // light pink
+    ctx.ellipse(p.x, p.y, p.size, p.size * 0.6, Math.PI / 4, 0, 2 * Math.PI);
+    ctx.fill();
+    p.y += p.speed;
+    p.x += p.drift;
+
+    if (p.y > canvas.height) petals.splice(i, 1);
+  }
+}
+
+setInterval(createPetal, 300);
+function animate() {
+  drawPetals();
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
+
